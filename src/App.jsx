@@ -1,7 +1,8 @@
-import './App.css'
+import '@/App.css'
 import { Breadcrumb, Layout} from 'antd';
-import TopBar from './components/layouts/TopBar';
-import Aside from './components/layouts/Aside';
+import TopBar from '@/components/layouts/TopBar';
+import Aside from '@/components/layouts/Aside';
+import { PrivateRoutes } from '@/routing/PrivateRoutes';
 
 const { Content, Footer } = Layout;
 
@@ -28,15 +29,7 @@ const App = () => {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            Bill is a cat.
-          </div>
+          <PrivateRoutes />
         </Content>
         <Footer
           style={{
