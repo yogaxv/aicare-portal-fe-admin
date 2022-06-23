@@ -1,45 +1,53 @@
-import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
+import { Breadcrumb, Layout} from 'antd';
+import TopBar from './components/layouts/TopBar';
+import Aside from './components/layouts/Aside';
 
-function App() {
-  const [count, setCount] = useState(0)
+const { Content, Footer } = Layout;
 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Layout
+      style={{
+        minHeight: '100vh',
+      }}
+    >
+      <Aside /> 
+      <Layout className="site-layout">
+        <TopBar />
+        <Content
+          style={{
+            margin: '0 16px',
+          }}
+        >
+          <Breadcrumb
+            style={{
+              margin: '16px 0',
+            }}
           >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              minHeight: 360,
+            }}
           >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
-}
+            Bill is a cat.
+          </div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Aicare Portal ©2022 Created by Aicare Team
+        </Footer>
+      </Layout>
+    </Layout>
+  );
+};
 
-export default App
+export default App;
